@@ -1,4 +1,12 @@
-const urls = ['I0001.png', 'I0002.png', 'I0003.png', '0004.png', 'I0005.png'];
+const urls = [];
+
+for (let y = 1; y <= 10; y++) {
+  if (y < 10) {
+    urls.push(`I000` + y + '.jpg');
+  } else {
+    urls.push(`I00` + y + '.jpg');
+  }
+}
 
 const curImage = document.getElementById('img');
 const button = document.getElementById('btn-image');
@@ -29,7 +37,7 @@ const startTimer = () => {
 };
 
 const changeImage = () => {
-  if (i > 4) {
+  if (i > urls.length) {
     clearInterval(startImages);
     document.getElementById('results').innerHTML = JSON.stringify(results);
     return;
@@ -39,7 +47,7 @@ const changeImage = () => {
   startTimer();
   clearInterval(startImages);
   startImages = setInterval(() => {
-    if (i >= 4) {
+    if (i >= url.length) {
       changeImage();
       clearInterval(startImages);
       console.log(results);
