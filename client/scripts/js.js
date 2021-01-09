@@ -1,4 +1,4 @@
-const urls = ['i0001.png', 'i0002.png', 'i0003.png', 'i0004.png', 'i0005.png'];
+const urls = ['I0001.png', 'I0002.png', 'I0003.png', '0004.png', 'I0005.png'];
 
 const curImage = document.getElementById('img');
 const button = document.getElementById('btn-image');
@@ -31,7 +31,7 @@ const startTimer = () => {
 const changeImage = () => {
   if (i > 4) {
     clearInterval(startImages);
-    console.log(results);
+    document.getElementById('results').innerHTML = JSON.stringify(results);
     return;
   }
   curImage.src = images[i++].image.src;
