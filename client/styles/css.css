@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #fff;
+  color: #000;
+}
+body {
+  font-size: 1.6rem;
+}
+.container {
+  width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+
+.image {
+  flex: 1;
+}
+
+.button {
+  padding: 1rem;
+  width: 50rem;
+  margin: 1rem 0 0 0;
+  color: #fff;
+  background: crimson;
+  outline: none;
+  border: 1px solid crimson;
+  font-size: 2rem;
+  border-radius: 5px;
+  height: 8rem;
+}
