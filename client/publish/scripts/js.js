@@ -74,7 +74,7 @@ const changeImage = () => {
   startImages = setInterval(() => {
     if (i < urls.length) {
       changeImage();
-      clearInterval(startImages);
+      // clearInterval(startImages);
     }
   }, 5000);
 };
