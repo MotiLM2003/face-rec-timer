@@ -2,7 +2,11 @@ const urls = [];
 
 let stage = 0;
 
-for (let y = 1; y <= 10; y++) {
+for (let y = 1; y <= 63; y++) {
+  const no = [38, 41, 42, 56, 60];
+  if (no.includes(y)) {
+    continue;
+  }
   if (y < 10) {
     urls.push(`I000` + y + '.jpg');
   } else {
