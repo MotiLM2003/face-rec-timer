@@ -8,10 +8,38 @@
   </head>
   <body>
     <div class="container">
-      <div class="image">
-        <img id="img" src="" />
+      <div class="intro" id="intro">
+        Hello, this is a reaction time test. Once you click on "start", a series
+        of images would come up, with a big button next to them. All you have to
+        do is click on the button as fast as you can if and when you see a face.
+        If you don't see a face in the image, please don't click and wait for 5
+        seconds until the next image comes up.<br />
+        <button
+          id="btn"
+          style="
+            margin: 20px 0 0 0;
+            background: green;
+            border: 1px solid green;
+            padding: 1rem;
+            color: #fff;
+            cursor: pointer;
+          "
+        >
+          Press Start To Begin
+        </button>
       </div>
-      <div><button class="button" id="btn-image">Click</button></div>
+      <div id="main" style="display: none">
+        <div class="image">
+          <img id="img" src="" />
+        </div>
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button class="button" id="btn-image">
+            Click here when you see a face
+          </button>
+        </div>
+      </div>
       <div id="results"></div>
     </div>
     <script src="./scripts/js.js"></script>

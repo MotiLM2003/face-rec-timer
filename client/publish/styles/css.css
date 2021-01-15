@@ -11,30 +11,46 @@ html {
 }
 body {
   font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
 }
 .container {
   width: 120rem;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   margin-top: 10rem;
+  display: flex;
 }
 
 .image {
-  flex: 1;
+}
+
+.intro {
+  width: 500px;
+  font-size: 2rem;
 }
 
 .button {
   padding: 1rem;
   width: 50rem;
-  margin: 1rem 0 0 0;
   color: #fff;
-  background: crimson;
+  background: green;
   outline: none;
-  border: 1px solid crimson;
+  border: 1px solid green;
   font-size: 2rem;
-  border-radius: 5px;
-  height: 8rem;
+  text-align: center;
+  vertical-align: center;
+  height: 22rem;
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: darkgreen;
 }

@@ -1,5 +1,7 @@
 const urls = [];
 
+let stage = 0;
+
 for (let y = 1; y <= 10; y++) {
   if (y < 10) {
     urls.push(`I000` + y + '.jpg');
@@ -8,6 +10,9 @@ for (let y = 1; y <= 10; y++) {
   }
 }
 
+const btnstart = document.getElementById('btn');
+const intro = document.getElementById('intro');
+const main = document.getElementById('main');
 const curImage = document.getElementById('img');
 const button = document.getElementById('btn-image');
 let startImages = null;
@@ -19,6 +24,22 @@ const addEvent = () => {
   changeImage();
 };
 
+btnstart.addEventListener('click', () => {
+  let start = 5;
+  const interval = setInterval(() => {
+    btnstart.innerHTML = `Starting in ${start--}`;
+    if (start < 0) {
+      clearInterval(interval);
+      intro.style.display = 'none';
+      main.style.display = 'block';
+
+      changeImage();
+      startTimer();
+    }
+  }, 1000);
+  btnstart.value = '10';
+  console.log(btnstart);
+});
 button.addEventListener('click', addEvent);
 let start = Date.now();
 let seconds = 0;
@@ -57,6 +78,3 @@ const changeImage = () => {
     }
   }, 5000);
 };
-
-changeImage();
-startTimer();
