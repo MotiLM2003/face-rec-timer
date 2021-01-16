@@ -3,8 +3,8 @@ const urls = [];
 let stage = 0;
 //63
 
-for (let y = 1; y <= 4; y++) {
-  const no = [38, 41, 42, 56, 60];
+for (let y = 1; y <= 60; y++) {
+  const no = [];
   if (no.includes(y)) {
     continue;
   }
@@ -20,6 +20,7 @@ const intro = document.getElementById('intro');
 const main = document.getElementById('main');
 const curImage = document.getElementById('img');
 const button = document.getElementById('btn-image');
+const outro = document.getElementById('outro');
 let startImages = null;
 const results = [];
 let i = 0;
@@ -31,7 +32,8 @@ const addEvent = (isClick = true) => {
     changeImage();
   } else {
     clearInterval(startImages);
-    document.getElementById('results').innerHTML = JSON.stringify(results);
+    outro.style.display = 'block';
+    main.style.display = 'none';
     button.removeEventListener('click', addEvent);
 
     $.post({
@@ -56,7 +58,7 @@ btnstart.addEventListener('click', () => {
     if (start < 0) {
       clearInterval(interval);
       intro.style.display = 'none';
-      main.style.display = 'block';
+      main.style.display = 'flex';
 
       changeImage();
       startTimer();
