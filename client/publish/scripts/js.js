@@ -1,8 +1,9 @@
 const urls = [];
 
 let stage = 0;
+//63
 
-for (let y = 1; y <= 63; y++) {
+for (let y = 1; y <= 4; y++) {
   const no = [38, 41, 42, 56, 60];
   if (no.includes(y)) {
     continue;
@@ -23,9 +24,29 @@ let startImages = null;
 const results = [];
 let i = 0;
 
-const addEvent = () => {
-  results.push({ image: urls[i], speed: seconds });
-  changeImage();
+const addEvent = (isClick = true) => {
+  results.push({ image: urls[i], speed: isClick ? seconds : 'no click' });
+  i++;
+  if (i < urls.length) {
+    changeImage();
+  } else {
+    clearInterval(startImages);
+    document.getElementById('results').innerHTML = JSON.stringify(results);
+    button.removeEventListener('click', addEvent);
+
+    $.post({
+      traditional: true,
+      url: 'https://moti-api-server.herokuapp.com/pictures/',
+      contentType: 'application/json',
+      data: JSON.stringify(results),
+      dataType: 'json',
+      success: function (response) {
+        console.log(response);
+      },
+    });
+    console.log(results);
+    return;
+  }
 };
 
 btnstart.addEventListener('click', () => {
@@ -64,21 +85,13 @@ const startTimer = () => {
 };
 
 const changeImage = () => {
-  if (i >= urls.length) {
-    clearInterval(startImages);
-    document.getElementById('results').innerHTML = JSON.stringify(results);
-    button.removeEventListener('click', addEvent);
-    return;
-  }
-  curImage.src = images[i++].image.src;
+  curImage.src = images[i].image.src;
   start = Date.now();
   startTimer();
   clearInterval(startImages);
   clearInterval(sTimer);
+
   startImages = setInterval(() => {
-    if (i < urls.length) {
-      changeImage();
-      // clearInterval(startImages);
-    }
+    addEvent(false);
   }, 5000);
 };
